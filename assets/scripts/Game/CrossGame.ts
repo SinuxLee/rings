@@ -1,7 +1,8 @@
 import Game, { PointDir } from "./Game";
 import RingPoint from "./RingPoint";
 import { Dictionary } from "../YZKCocos/Tools/Dictionary";
-
+////特价9.9元一套cocoscreator代码联系Q2483367084 
+//截图 链接：https://share.weiyun.com/leGAHpnB 密码：b9udtv
 const {ccclass, property} = cc._decorator;
 
 @ccclass
