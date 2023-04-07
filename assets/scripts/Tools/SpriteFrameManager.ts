@@ -1,157 +1,149 @@
-import { Dictionary } from "../YZKCocos/Tools/Dictionary";
-import { RingType } from "../Game/Ring";
-import { SkinType } from "../Game/GameManager";
+import { Dictionary } from '../YZKCocos/Tools/Dictionary'
+import { RingType } from '../Game/Ring'
+import { SkinType } from '../Game/GameManager'
 
-const {ccclass,executionOrder, property,executeInEditMode} = cc._decorator;
+const { ccclass, executionOrder, property, executeInEditMode } = cc._decorator
 
 @ccclass
-//@executeInEditMode
+// @executeInEditMode
 
 @executionOrder(-1)
 export default class SpriteFrameManager extends cc.Component {
+  @property({
+    type: [cc.SpriteFrame],
+    displayName: '冰雪Large'
+  })
+  private readonly snowLarge: cc.SpriteFrame[] = []
 
-   
-    @property({
-        type:[cc.SpriteFrame],
-        displayName:"冰雪Large"
-    })
-    private snowLarge:cc.SpriteFrame[] = [];
-    
-    @property({
-        type:[cc.SpriteFrame],
-        displayName:"冰雪Mid"
-    })
-    private snowMid:cc.SpriteFrame[] = [];
-    
-    @property({
-        type:[cc.SpriteFrame],
-        displayName:"冰雪Small"
-    })
-    private snowSmall:cc.SpriteFrame[] = [];
+  @property({
+    type: [cc.SpriteFrame],
+    displayName: '冰雪Mid'
+  })
+  private readonly snowMid: cc.SpriteFrame[] = []
 
-    @property({
-        type:[cc.SpriteFrame],
-        displayName:"蛇Large"
-    })
-    private snakeLarge:cc.SpriteFrame[] = [];
+  @property({
+    type: [cc.SpriteFrame],
+    displayName: '冰雪Small'
+  })
+  private readonly snowSmall: cc.SpriteFrame[] = []
 
-    @property({
-        type:[cc.SpriteFrame],
-        displayName:"蛇Mid"
-    })
-    private snakeMid:cc.SpriteFrame[] = [];
+  @property({
+    type: [cc.SpriteFrame],
+    displayName: '蛇Large'
+  })
+  private readonly snakeLarge: cc.SpriteFrame[] = []
 
-    @property({
-        type:[cc.SpriteFrame],
-        displayName:"蛇Small"
-    })
-    private snakeSmall:cc.SpriteFrame[] = [];
+  @property({
+    type: [cc.SpriteFrame],
+    displayName: '蛇Mid'
+  })
+  private readonly snakeMid: cc.SpriteFrame[] = []
 
-    @property({
-        type:[cc.SpriteFrame],
-        displayName:"星座Large"
-    })
-    private starLarge:cc.SpriteFrame[] = [];
+  @property({
+    type: [cc.SpriteFrame],
+    displayName: '蛇Small'
+  })
+  private readonly snakeSmall: cc.SpriteFrame[] = []
 
-    @property({
-        type:[cc.SpriteFrame],
-        displayName:"星座Mid"
-    })
-    private starMid:cc.SpriteFrame[] = [];
+  @property({
+    type: [cc.SpriteFrame],
+    displayName: '星座Large'
+  })
+  private readonly starLarge: cc.SpriteFrame[] = []
 
+  @property({
+    type: [cc.SpriteFrame],
+    displayName: '星座Mid'
+  })
+  private readonly starMid: cc.SpriteFrame[] = []
 
-    @property({
-        type:[cc.SpriteFrame],
-        displayName:"星座Small"
-    })
-    private starSmall:cc.SpriteFrame[] = [];
+  @property({
+    type: [cc.SpriteFrame],
+    displayName: '星座Small'
+  })
+  private readonly starSmall: cc.SpriteFrame[] = []
 
+  @property({
+    type: [cc.SpriteFrame],
+    displayName: '海洋Large'
+  })
+  private readonly seaLarge: cc.SpriteFrame[] = []
 
-    @property({
-        type:[cc.SpriteFrame],
-        displayName:"海洋Large"
-    })
-    private seaLarge:cc.SpriteFrame[] = [];
+  @property({
+    type: [cc.SpriteFrame],
+    displayName: '海洋Mid'
+  })
+  private readonly seaMid: cc.SpriteFrame[] = []
 
-    @property({
-        type:[cc.SpriteFrame],
-        displayName:"海洋Mid"
-    })
-    private seaMid:cc.SpriteFrame[] = [];
+  @property({
+    type: [cc.SpriteFrame],
+    displayName: '海洋Small'
+  })
+  private readonly seaSmall: cc.SpriteFrame[] = []
 
-    @property({
-        type:[cc.SpriteFrame],
-        displayName:"海洋Small"
-    })
-    private seaSmall:cc.SpriteFrame[] = [];
+  @property({
+    type: [cc.SpriteFrame],
+    displayName: '科学Large'
+  })
+  private readonly scienceLarge: cc.SpriteFrame[] = []
 
+  @property({
+    type: [cc.SpriteFrame],
+    displayName: '科学Mid'
+  })
+  private readonly scienceMid: cc.SpriteFrame[] = []
 
-    @property({
-        type:[cc.SpriteFrame],
-        displayName:"科学Large"
-    })
-    private scienceLarge:cc.SpriteFrame[] = [];
-    
-    @property({
-        type:[cc.SpriteFrame],
-        displayName:"科学Mid"
-    })
-    private scienceMid:cc.SpriteFrame[] = [];
-    
-    @property({
-        type:[cc.SpriteFrame],
-        displayName:"科学Small"
-    })
-    private scienceSmall:cc.SpriteFrame[] = [];
+  @property({
+    type: [cc.SpriteFrame],
+    displayName: '科学Small'
+  })
+  private readonly scienceSmall: cc.SpriteFrame[] = []
 
-    @property({
-        type:[cc.SpriteFrame],
-        displayName:"经典Large"
-    })
-    private classicLarge:cc.SpriteFrame[] = [];
-   
-    @property({
-        type:[cc.SpriteFrame],
-        displayName:"经典Mid"
-    })
-    private classicMid:cc.SpriteFrame[] = [];
-    
-    @property({
-        type:[cc.SpriteFrame],
-        displayName:"经典Small"
-    })
-    private classicSmall:cc.SpriteFrame[] = [];
+  @property({
+    type: [cc.SpriteFrame],
+    displayName: '经典Large'
+  })
+  private readonly classicLarge: cc.SpriteFrame[] = []
 
-    @property({
-        type:[cc.SpriteFrame],
-        displayName:"skinBG"
-    })
-    private skinBG:cc.SpriteFrame[] = [];
+  @property({
+    type: [cc.SpriteFrame],
+    displayName: '经典Mid'
+  })
+  private readonly classicMid: cc.SpriteFrame[] = []
 
+  @property({
+    type: [cc.SpriteFrame],
+    displayName: '经典Small'
+  })
+  private readonly classicSmall: cc.SpriteFrame[] = []
 
-    private static _instance:SpriteFrameManager = null;
-    static get Instance():SpriteFrameManager{
-        return this._instance;
-    }
+  @property({
+    type: [cc.SpriteFrame],
+    displayName: 'skinBG'
+  })
+  private readonly skinBG: cc.SpriteFrame[] = []
 
-    onLoad(){
-        SpriteFrameManager._instance = this;
-        cc.game.addPersistRootNode(this.node);
+  private static _instance: SpriteFrameManager = null
+  static get Instance (): SpriteFrameManager {
+    return this._instance
+  }
 
-        
-        //面板上的sprite整合到一起
-        // this.sprites.AddRange(this.itemsSprite);
+  onLoad () {
+    SpriteFrameManager._instance = this
+    cc.game.addPersistRootNode(this.node)
 
-        // this._spriteDic = new Dictionary<string,number>();
-        // for (let i = 0; i < this.sprites.length; i++) {
-        //     this._spriteDic.add(this.sprites[i].name,i);
-        // }
-    
-    }
-/*
+    // 面板上的sprite整合到一起
+    // this.sprites.AddRange(this.itemsSprite);
+
+    // this._spriteDic = new Dictionary<string,number>();
+    // for (let i = 0; i < this.sprites.length; i++) {
+    //     this._spriteDic.add(this.sprites[i].name,i);
+    // }
+  }
+  /*
     @property
     doread:boolean = false;
-    
+
     update(){
         if(this.doread){
             this.doread = false;
@@ -245,63 +237,62 @@ export default class SpriteFrameManager extends cc.Component {
                 }
             });
         }
-    }*/
+    } */
 
-    getIcon(skinType:SkinType, type:RingType,index:number):cc.SpriteFrame{
-        switch(skinType){
-            case SkinType.冰雪:
-                if (type == RingType.large) {
-                    return this.snowLarge[index];
-                } else if (type == RingType.mid) {
-                    return this.snowMid[index];
-                } else {
-                    return this.snowSmall[index];
-                }
-            case SkinType.星座:
-                if (type == RingType.large) {
-                    return this.starLarge[index];
-                } else if (type == RingType.mid) {
-                    return this.starMid[index];
-                } else {
-                    return this.starSmall[index];
-                }
-            case SkinType.海洋:
-                if (type == RingType.large) {
-                    return this.seaLarge[index];
-                } else if (type == RingType.mid) {
-                    return this.seaMid[index];
-                } else {
-                    return this.seaSmall[index];
-                }
-            case SkinType.科学:
-                if (type == RingType.large) {
-                    return this.scienceLarge[index];
-                } else if (type == RingType.mid) {
-                    return this.scienceMid[index];
-                } else {
-                    return this.scienceSmall[index];
-                }
-            case SkinType.经典:
-                if (type == RingType.large) {
-                    return this.classicLarge[index];
-                } else if (type == RingType.mid) {
-                    return this.classicMid[index];
-                } else {
-                    return this.classicSmall[index];
-                }
-            case SkinType.蛇:
-                if (type == RingType.large) {
-                    return this.snakeLarge[index];
-                } else if (type == RingType.mid) {
-                    return this.snakeMid[index];
-                } else {
-                    return this.snakeSmall[index];
-                }
-            }
+  getIcon (skinType: SkinType, type: RingType, index: number): cc.SpriteFrame {
+    switch (skinType) {
+      case SkinType.冰雪:
+        if (type == RingType.large) {
+          return this.snowLarge[index]
+        } else if (type == RingType.mid) {
+          return this.snowMid[index]
+        } else {
+          return this.snowSmall[index]
+        }
+      case SkinType.星座:
+        if (type == RingType.large) {
+          return this.starLarge[index]
+        } else if (type == RingType.mid) {
+          return this.starMid[index]
+        } else {
+          return this.starSmall[index]
+        }
+      case SkinType.海洋:
+        if (type == RingType.large) {
+          return this.seaLarge[index]
+        } else if (type == RingType.mid) {
+          return this.seaMid[index]
+        } else {
+          return this.seaSmall[index]
+        }
+      case SkinType.科学:
+        if (type == RingType.large) {
+          return this.scienceLarge[index]
+        } else if (type == RingType.mid) {
+          return this.scienceMid[index]
+        } else {
+          return this.scienceSmall[index]
+        }
+      case SkinType.经典:
+        if (type == RingType.large) {
+          return this.classicLarge[index]
+        } else if (type == RingType.mid) {
+          return this.classicMid[index]
+        } else {
+          return this.classicSmall[index]
+        }
+      case SkinType.蛇:
+        if (type == RingType.large) {
+          return this.snakeLarge[index]
+        } else if (type == RingType.mid) {
+          return this.snakeMid[index]
+        } else {
+          return this.snakeSmall[index]
+        }
     }
+  }
 
-    getSkinBg(skinType:SkinType){
-        return this.skinBG[skinType];
-    }
-    
+  getSkinBg (skinType: SkinType) {
+    return this.skinBG[skinType]
+  }
 }

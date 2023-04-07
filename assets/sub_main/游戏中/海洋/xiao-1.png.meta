@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "6170ac34-e947-44e4-b69c-749318493c42",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 72,
+  "height": 72,
   "platformSettings": {},
   "subMetas": {
     "xiao-1": {

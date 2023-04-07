@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "3cd25d48-0a02-40d6-948a-4e229260233c",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 89,
+  "height": 88,
   "platformSettings": {},
   "subMetas": {
     "xiaochu": {

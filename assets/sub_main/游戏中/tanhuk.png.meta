@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "9485a30e-b7bb-4af2-ba0e-cfe1a02568ed",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 90,
+  "height": 52,
   "platformSettings": {},
   "subMetas": {
     "tanhuk": {

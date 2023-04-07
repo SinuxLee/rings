@@ -1,29 +1,27 @@
-import MiniGameBase from "./MiniGameBase";
+import MiniGameBase from './MiniGameBase'
 
-const {ccclass, property} = cc._decorator;
+const { ccclass, property } = cc._decorator
 
 @ccclass
 export class MG_4399 extends MiniGameBase {
-    
-    shareApp(){
-        //@ts-ignore
-        window.h5api.share();
-    }
+  shareApp () {
+    // @ts-expect-error
+    window.h5api.share()
+  }
 
-    showVideoAd(callback){
-        //@ts-ignore
-        window.h5api.canPlayAd((data)=>{
-            if(!data.canPlayAd || data.remain < 1){
-                callback(false,'今日广告次数已用完!');
-            }else{
-                //@ts-ignore
-                window.h5api.playAd((obj)=>{
-                    if(obj.code != 10000){
-                        callback && callback(obj.code == 10001);
-                    }
-                });
-            }
-        });
-        
-    }
+  showVideoAd (callback) {
+    // @ts-expect-error
+    window.h5api.canPlayAd((data) => {
+      if (!data.canPlayAd || data.remain < 1) {
+        callback(false, '今日广告次数已用完!')
+      } else {
+        // @ts-expect-error
+        window.h5api.playAd((obj) => {
+          if (obj.code != 10000) {
+            callback && callback(obj.code == 10001)
+          }
+        })
+      }
+    })
+  }
 }

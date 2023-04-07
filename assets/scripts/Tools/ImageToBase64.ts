@@ -1,25 +1,23 @@
-const {ccclass, property} = cc._decorator;
+const { ccclass, property } = cc._decorator
 
 @ccclass
 export default class ImageToBase64 extends cc.Component {
+  static pngToBase64 (sprite: cc.SpriteFrame) {
+    cc.log(sprite)
+    const texture: cc.Texture2D = sprite.getTexture()
 
-    static pngToBase64(sprite:cc.SpriteFrame){
-        cc.log(sprite);
-        let texture :cc.Texture2D = sprite.getTexture();
+    cc.log(texture)
 
-        cc.log(texture);
+    const htmlImage: HTMLImageElement = texture.getHtmlElementObj()
 
-        let htmlImage:HTMLImageElement = texture.getHtmlElementObj();
+    cc.log(htmlImage)
 
-        cc.log(htmlImage);
-
-        let canvas = document.createElement("canvas");
-        canvas.width = htmlImage.width;
-        canvas.height = htmlImage.height;
-        let temp = canvas.getContext('2d');
-        temp.drawImage(htmlImage,0,0,htmlImage.width,htmlImage.height);
-        let data =canvas.toDataURL();
-        return data;
-    }
-
+    const canvas = document.createElement('canvas')
+    canvas.width = htmlImage.width
+    canvas.height = htmlImage.height
+    const temp = canvas.getContext('2d')
+    temp.drawImage(htmlImage, 0, 0, htmlImage.width, htmlImage.height)
+    const data = canvas.toDataURL()
+    return data
+  }
 }

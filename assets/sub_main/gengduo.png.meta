@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "428770ba-1972-465d-9fa9-d671a0619168",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 101,
+  "height": 101,
   "platformSettings": {},
   "subMetas": {
     "gengduo": {

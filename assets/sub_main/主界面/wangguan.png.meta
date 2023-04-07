@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "b9ccd4ed-0fcc-4b9c-af60-95ac5a316ffb",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 63,
+  "height": 51,
   "platformSettings": {},
   "subMetas": {
     "wangguan": {

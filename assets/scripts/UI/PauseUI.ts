@@ -1,97 +1,93 @@
-import UIPanelBase from "../YZKCocos/UIFrame/UIPanelBase";
-import YZK from "../YZKCocos/YZK";
-import SoundManager, { SoundName } from "../Tools/SoundManager";
-import GameManager from "../Game/GameManager";
-import UIPanelManager from "../YZKCocos/UIFrame/UIPanelManager";
-import { PanelName } from "../YZKCocos/UIFrame/UIPanelName";
+import UIPanelBase from '../YZKCocos/UIFrame/UIPanelBase'
+import YZK from '../YZKCocos/YZK'
+import SoundManager, { SoundName } from '../Tools/SoundManager'
+import GameManager from '../Game/GameManager'
+import UIPanelManager from '../YZKCocos/UIFrame/UIPanelManager'
+import { PanelName } from '../YZKCocos/UIFrame/UIPanelName'
 
-const {ccclass, property} = cc._decorator;
+const { ccclass, property } = cc._decorator
 
 @ccclass
 export default class PauseUI extends UIPanelBase {
+  private soundBtn: cc.Node = null
+  private soundOnNode: cc.Node = null
+  private soundOffNode: cc.Node = null
 
-    private soundBtn:cc.Node = null;
-    private soundOnNode:cc.Node = null;
-    private soundOffNode:cc.Node = null;
+  private vibrateBtn: cc.Node = null
+  private vibrateOnNode: cc.Node = null
+  private vibrateOffNode: cc.Node = null
 
-    private vibrateBtn:cc.Node = null;
-    private vibrateOnNode:cc.Node = null;
-    private vibrateOffNode:cc.Node = null;
-    
-    private exitBtn:cc.Node = null;
-    private continueBtn:cc.Node = null;
+  private exitBtn: cc.Node = null
+  private continueBtn: cc.Node = null
 
+  private soundCtrl: boolean = true
+  private vibrateCtrl: boolean = true
 
-    private soundCtrl:boolean = true;
-    private vibrateCtrl:boolean = true;
+  onEnable () {
+    this.soundCtrl = SoundManager.getInstance().getSoundControl()
+    this.updateSound()
 
-    onEnable(){
-        this.soundCtrl = SoundManager.getInstance().getSoundControl();
-        this.updateSound();
+    this.vibrateCtrl = GameManager.getInstance().playerData.vibrate
+    this.updateVibrate()
+  }
 
-        this.vibrateCtrl = GameManager.getInstance().playerData.vibrate;
-        this.updateVibrate();
-    }
+  initComponent () {
+    this.soundBtn = this.node.getChildByPath('sound')
+    this.soundOnNode = this.soundBtn.getChildByPath('on')
+    this.soundOffNode = this.soundBtn.getChildByPath('off')
 
-    initComponent(){
-        this.soundBtn = this.node.getChildByPath("sound");
-        this.soundOnNode = this.soundBtn.getChildByPath("on");
-        this.soundOffNode = this.soundBtn.getChildByPath("off");
+    this.vibrateBtn = this.node.getChildByPath('vibrate')
+    this.vibrateOnNode = this.vibrateBtn.getChildByPath('on')
+    this.vibrateOffNode = this.vibrateBtn.getChildByPath('off')
 
-        this.vibrateBtn = this.node.getChildByPath("vibrate");
-        this.vibrateOnNode = this.vibrateBtn.getChildByPath("on");
-        this.vibrateOffNode = this.vibrateBtn.getChildByPath("off");
+    this.exitBtn = this.node.getChildByPath('退出')
+    this.continueBtn = this.node.getChildByPath('继续')
+  }
 
-        this.exitBtn = this.node.getChildByPath("退出");
-        this.continueBtn = this.node.getChildByPath("继续");
+  addBtnListener () {
+    this.soundBtn.addListener(this.btnOfSound, this)
+    this.vibrateBtn.addListener(this.btnOfVibrate, this)
+    this.continueBtn.addListener(this.btnOfContinue, this)
+    this.exitBtn.addListener(this.btnOfExit, this)
+  }
 
-    }
+  btnOfSound () {
+    SoundManager.getInstance().playSound(SoundName.sound_common_click)
 
-    addBtnListener(){
-        this.soundBtn.addListener(this.btnOfSound,this);
-        this.vibrateBtn.addListener(this.btnOfVibrate,this);
-        this.continueBtn.addListener(this.btnOfContinue,this);
-        this.exitBtn.addListener(this.btnOfExit,this);
+    this.soundCtrl = !this.soundCtrl
+    SoundManager.getInstance().setSoundCtrl(this.soundCtrl)
+    this.updateSound()
+  }
 
-    }
+  btnOfVibrate () {
+    SoundManager.getInstance().playSound(SoundName.sound_common_click)
 
-    btnOfSound(){
-        SoundManager.getInstance().playSound(SoundName.sound_common_click);
+    this.vibrateCtrl = !this.vibrateCtrl
+    GameManager.getInstance().playerData.vibrate = this.vibrateCtrl
+    GameManager.getInstance().savePlayerData()
+    this.updateVibrate()
+  }
 
-        this.soundCtrl = !this.soundCtrl;
-        SoundManager.getInstance().setSoundCtrl(this.soundCtrl);
-        this.updateSound();
-    }
+  updateSound () {
+    this.soundOffNode.active = !this.soundCtrl
+    this.soundOnNode.active = this.soundCtrl
+  }
 
-    btnOfVibrate(){
-        SoundManager.getInstance().playSound(SoundName.sound_common_click);
+  updateVibrate () {
+    this.vibrateOnNode.active = this.vibrateCtrl
+    this.vibrateOffNode.active = !this.vibrateCtrl
+  }
 
-        this.vibrateCtrl = !this.vibrateCtrl;
-        GameManager.getInstance().playerData.vibrate = this.vibrateCtrl;
-        GameManager.getInstance().savePlayerData();
-        this.updateVibrate();
-    }
+  btnOfContinue () {
+    SoundManager.getInstance().playSound(SoundName.sound_common_click)
+    this.closeSelf()
+  }
 
-    updateSound(){
-        this.soundOffNode.active = !this.soundCtrl;
-        this.soundOnNode.active = this.soundCtrl;
-    }
-
-    updateVibrate(){
-        this.vibrateOnNode.active = this.vibrateCtrl;
-        this.vibrateOffNode.active = !this.vibrateCtrl;
-    }
-
-    btnOfContinue(){
-        SoundManager.getInstance().playSound(SoundName.sound_common_click);
-        this.closeSelf();
-    }
-
-    btnOfExit(){
-        SoundManager.getInstance().playSound(SoundName.sound_common_click);
-        this.closeSelf();
-        GameManager.getInstance().exitGame(()=>{
-            UIPanelManager.showPanel(PanelName.MainUI);
-        });
-    }
+  btnOfExit () {
+    SoundManager.getInstance().playSound(SoundName.sound_common_click)
+    this.closeSelf()
+    GameManager.getInstance().exitGame(() => {
+      UIPanelManager.showPanel(PanelName.MainUI)
+    })
+  }
 }

@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "339453b3-bf60-437a-a42c-7e616e22652e",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 178,
+  "height": 66,
   "platformSettings": {},
   "subMetas": {
     "fangqi": {

@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "54402a79-6beb-41ac-ba7e-d20d9c07457d",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 61,
+  "height": 22,
   "platformSettings": {},
   "subMetas": {
     "chengseandi": {

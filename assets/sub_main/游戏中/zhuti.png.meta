@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "d650c10e-500f-4ab4-b56b-fc5db75ddbfb",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 89,
+  "height": 88,
   "platformSettings": {},
   "subMetas": {
     "zhuti": {

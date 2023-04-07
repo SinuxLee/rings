@@ -1,27 +1,25 @@
-import { SaveData } from "../../YZKCocos/Tools/SaveData";
-import GameManager, { PlayerData } from "../../Game/GameManager";
-import { MG_SFH5 } from "../../YZKCocos/MiniGameManager/MG_SFH5";
+import { SaveData } from '../../YZKCocos/Tools/SaveData'
+import GameManager, { PlayerData } from '../../Game/GameManager'
+import { MG_SFH5 } from '../../YZKCocos/MiniGameManager/MG_SFH5'
 
-const {ccclass, property} = cc._decorator;
+const { ccclass, property } = cc._decorator
 
 @ccclass
 export default class SplashUI extends cc.Component {
-
-    start(){
-        //  SaveData.deleteAll();
-        try{
-            cc.loader.downloader.loadSubpackage("sub_loading",(err)=>{
-                this.scheduleOnce(()=>{
-                    cc.director.loadScene("loading");
-                },0.5); 
-            });
-        }catch
-        {
-            cc.director.loadScene("loading");
-        }
+  start () {
+    //  SaveData.deleteAll();
+    try {
+      cc.loader.downloader.loadSubpackage('sub_loading', (err) => {
+        this.scheduleOnce(() => {
+          cc.director.loadScene('loading')
+        }, 0.5)
+      })
+    } catch {
+      cc.director.loadScene('loading')
     }
+  }
 
-      /* let a = new Proxy([], {
+  /* let a = new Proxy([], {
             set(obj, prop, value) {
                 obj[prop] = value;
                 cc.log(prop);
@@ -39,5 +37,5 @@ export default class SplashUI extends cc.Component {
 
         cc.log(a)
         cc.log(a[1])
-        return;*/
+        return; */
 }

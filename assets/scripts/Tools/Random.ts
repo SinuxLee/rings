@@ -1,27 +1,24 @@
 
-export class Random{
+export class Random {
+  static RangeFloat (min: number, max: number): number {
+    let value: number = 0
 
-    static RangeFloat(min:number,max:number):number{
-        let value:number = 0
+    const i = Math.random()
+    value = i * (max - min) + min
 
-        let i = Math.random();
-        value = i*(max - min) + min;
+    return value
+  }
 
-        return value;
-    }
-  
-    static RangeInt(min:number,max:number):number{
-        let value:number = 0
+  static RangeInt (min: number, max: number): number {
+    let value: number = 0
 
-        let i = Math.random();
-        value = i*(max - min) + min;
-        value = Math.floor(value);
-        return value;
-    }
+    const i = Math.random()
+    value = i * (max - min) + min
+    value = Math.floor(value)
+    return value
+  }
 
-    static get value():number{
-        return Math.random();
-    }
-
-    
+  static get value (): number {
+    return Math.random()
+  }
 }

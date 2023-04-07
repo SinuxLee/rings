@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "2de82b1b-8f44-4a21-8c5d-802fbdfa9d4e",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 44,
+  "height": 38,
   "platformSettings": {},
   "subMetas": {
     "jiantou": {

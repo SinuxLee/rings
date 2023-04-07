@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "911c1663-f4a5-4aa4-8c2f-015e4620f0b7",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 90,
+  "height": 90,
   "platformSettings": {},
   "subMetas": {
     "heikuang": {

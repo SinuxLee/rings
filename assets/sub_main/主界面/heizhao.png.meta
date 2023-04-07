@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "8b23bd82-d049-480c-9e1b-355b185b3254",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 246,
+  "height": 246,
   "platformSettings": {},
   "subMetas": {
     "heizhao": {

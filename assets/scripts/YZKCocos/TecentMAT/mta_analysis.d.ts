@@ -1,8 +1,8 @@
 
-export class App{
-    static init(a:any);
+export class App {
+  static init (a: any)
 }
 
-export class Page{
-    static init();
+export class Page {
+  static init ()
 }

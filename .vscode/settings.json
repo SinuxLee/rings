@@ -1,0 +1,16 @@
+{
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/temp": true,
+        "**/*.meta": true,
+        "**/creator.d.ts": true,
+        "library/**/*.*": true
+    },
+    "files.exclude": {
+        "**/node_modules": true,
+        "**/temp": true,
+        "**/*.meta": true,
+        "library/**/*.*": true
+    },
+    "eslint.format.enable": true
+}

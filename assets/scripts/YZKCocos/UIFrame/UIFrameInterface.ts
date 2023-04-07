@@ -1,22 +1,22 @@
-const {ccclass, property} = cc._decorator;
+const { ccclass, property } = cc._decorator
 
 export interface UIFrameInterface {
 
-    uiRoot:cc.Node;
+  uiRoot: cc.Node
 
-    getSpriteById(itemId:number):cc.SpriteFrame;
+  getSpriteById: (itemId: number) => cc.SpriteFrame
 
-    getNameById(itemId:number):string;
+  getNameById: (itemId: number) => string
 
-    getCountById(itemId:number):number;
+  getCountById: (itemId: number) => number
 
-    addItems(itemIds:number[],itemCounts:number[],needShowWindow:boolean);
+  addItems: (itemIds: number[], itemCounts: number[], needShowWindow: boolean) => any
 
-    useItems(itemIds:number[],itemCounts:number[]);
+  useItems: (itemIds: number[], itemCounts: number[]) => any
 
-    isItemEnough(itemId:number):boolean;
+  isItemEnough: (itemId: number) => boolean
 
-    playClickSound();
+  playClickSound: () => any
 
-    playExitSound();
+  playExitSound: () => any
 }

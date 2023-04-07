@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "6b5cacc5-bead-469e-8536-d9e8c145a042",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 214,
+  "height": 335,
   "platformSettings": {},
   "subMetas": {
     "waifag": {
